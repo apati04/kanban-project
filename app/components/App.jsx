@@ -17,13 +17,15 @@ class App extends Component {
   }
   render() {
     const { notes } = this.state;
+
     return (
       <div>
         <button onClick={this.addNote}>+</button>
-        <Notes notes={notes}/>
+        <Notes notes={notes} onDelete={this.deleteNote} />
       </div>
     )
   }
+
   addNote = () => {
     this.setState({
       notes: [...this.state.notes,
@@ -31,6 +33,12 @@ class App extends Component {
         id: uuid.v4(),
         task: 'New Task'
       }]
+    });
+  }
+  deleteNote = (id, e) => {
+    e.stopPropagation();
+    this.setState({
+      notes: this.state.notes.filter(note => note.id !== id)
     });
   }
 }

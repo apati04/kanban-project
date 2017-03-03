@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import classnames from 'classnames';  
+import classnames from 'classnames';
 
 export default ({editing, value, onEdit, className, ...props}) => {
   if(editing) {
@@ -11,7 +11,7 @@ export default ({editing, value, onEdit, className, ...props}) => {
   }
   return <span className={classnames('value', className)} {...props}>{value}</span>;
 }
-
+// 
 // const Editable = ({editing, value, onEdit}) => {
 //   if(editing) {
 //     return <Editable.Edit value={value} onEdit={onEdit} />;

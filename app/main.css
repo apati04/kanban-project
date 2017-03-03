@@ -7,3 +7,9 @@ body {
   background-color: #fdfdfd;
   border: 1x solid #ccc;
 }
+.notes {
+  margin: 0.5em;
+  padding-left: 0;
+  max-width: 10em;
+  list-style: none;
+}

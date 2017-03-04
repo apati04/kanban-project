@@ -33,6 +33,7 @@ const common = merge(
       // based on this. You can even use an absolute path here
       // or even point to a CDN.
       //publicPath: ''
+
     },
     resolve: {
       extensions: ['', '.js', '.jsx']

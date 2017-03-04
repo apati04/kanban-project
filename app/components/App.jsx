@@ -40,12 +40,9 @@ class App extends Component {
     })
   }
   addNote = () => {
-    this.setState({
-      notes: [...this.state.notes,
-        {
-        id: uuid.v4(),
-        task: 'New Task'
-      }]
+    this.props.NoteActions.create({
+      id: uuid.v4(),
+      task: 'New task'
     });
   }
   deleteNote = (id, e) => {
@@ -56,4 +53,4 @@ class App extends Component {
   }
 }
 export default connect(({notes})=> ({notes}), { NoteActions })(App);
-// gives us this.props.NoteActions.create 
+// gives us this.props.NoteActions.create

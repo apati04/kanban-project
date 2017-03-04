@@ -1,5 +1,5 @@
 import uuid from 'uuid';
-import NoteActions from '../actions/NoteACtions';
+import NoteActions from '../actions/NoteActions';
 
 // setup
 export default class NoteStore {

@@ -11,14 +11,6 @@ export default ({editing, value, onEdit, className, ...props}) => {
   }
   return <span className={classnames('value', className)} {...props}>{value}</span>;
 }
-// 
-// const Editable = ({editing, value, onEdit}) => {
-//   if(editing) {
-//     return <Editable.Edit value={value} onEdit={onEdit} />;
-//   }
-//   return <Editable.Value value={value} />;
-// };
-// Editable.Value = ({value, ...props}) => <span {...props}>{value}</span>;
 
 class Edit extends Component {
   render(){

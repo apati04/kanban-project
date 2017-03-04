@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Notes from './Notes';
 import uuid from 'uuid';
 import connect from '../libs/connect';
+import NoteActions from '../actions/NoteActions';
 
 class App extends Component {
   render() {
@@ -54,4 +55,5 @@ class App extends Component {
     });
   }
 }
-export default connect(({notes})=> ({notes}))(App);
+export default connect(({notes})=> ({notes}), { NoteActions })(App);
+// gives us this.props.NoteActions.create 

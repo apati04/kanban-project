@@ -4,24 +4,11 @@ import uuid from 'uuid';
 import connect from '../libs/connect';
 
 class App extends Component {
-  state = {
-    notes: [
-      {
-        id: uuid.v4(),
-        task: 'Learn React'
-      },
-      {
-        id: uuid.v4(),
-        task: 'Do laundry'
-      }
-    ]
-  }
   render() {
-    const { notes } = this.state;
+    const { notes } = this.props;
 
     return (
       <div>
-        {this.props.test}
         <button className="add-note" onClick={this.addNote}>+</button>
         <Notes
           notes={notes}
@@ -67,4 +54,4 @@ class App extends Component {
     });
   }
 }
-export default connect(()=> ({test: 'test'}))(App);
+export default connect(({notes})=> ({notes}))(App);

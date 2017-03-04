@@ -7,7 +7,6 @@ import NoteActions from '../actions/NoteActions';
 class App extends Component {
   render() {
     const { notes } = this.props;
-
     return (
       <div>
         <button className="add-note" onClick={this.addNote}>+</button>
@@ -21,12 +20,7 @@ class App extends Component {
     )
   }
   activateNoteEdit = (id) => {
-    this.setState({
-      notes: this.state.notes.map(note => {
-        if(note.id===id) {note.editing = true;}
-        return note;
-      })
-    });
+    this.props.NoteActions.update({id, editing: true});
   }
   editNote = (id, task) => {
     this.setState({

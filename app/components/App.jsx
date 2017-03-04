@@ -47,9 +47,7 @@ class App extends Component {
   }
   deleteNote = (id, e) => {
     e.stopPropagation();
-    this.setState({
-      notes: this.state.notes.filter(note => note.id !== id)
-    });
+    this.props.NoteActions.delete(id);
   }
 }
 export default connect(({notes})=> ({notes}), { NoteActions })(App);

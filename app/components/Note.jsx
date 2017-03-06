@@ -3,8 +3,13 @@ import { DragSource, DropTarget } from 'react-dnd';
 import { compose } from 'redux';
 import ItemTypes from '../constants/itemTypes';
 
-const Note = ({ connectDropTarget, connectDragSource, isDragging, isOver, onMove, id, children, ...props }) => {
-  return compose(connectDragSource, connectDropTarget)(
+const Note = ({
+  connectDropTarget, connectDragSource, isDragging,
+  isOver, onMove, id, editing, children, ...props }) => {
+    // pass through if editing
+  const dragSource = editing ? a => a : connectDragSource;
+
+  return compose(dragSource, connectDropTarget)(
     <div style={{opacity: isDragging || isOver ? 0 : 1}} {...props}>{children}</div>
   );
 }

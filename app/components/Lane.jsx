@@ -24,4 +24,20 @@ const Lane = ({
   const activateNoteEdit = id => {
     NoteActions.update({id, editing: true});
   };
+  return (
+    <div {...props}>
+      <div className="lane-header">
+        <div className="lane-add-note">
+          <button onClick={addNote}>+</button>
+        </div>
+        <div className="lane-name">{lane.name}</div>
+      </div>
+      <Notes
+        notes={notes}
+        onNoteClick={activateNoteEdit}
+        onEdit={editNote}
+        onDelete={deleteNote} />
+    </div>
+  );
 }
+export default connect(({notes}) => ({notes}), {NoteActions})(Lane);

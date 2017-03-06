@@ -50,4 +50,7 @@ export default class LaneStore {
   delete(id) {
     this.setState({ lanes: this.lanes.filter(l => l.id !== id)});
   }
+  move({sourceId, targetId}) {
+    console.log(`source: ${sourceId}, target: ${targetId}`);
+  }
 }

@@ -3,7 +3,7 @@ import { DragSource, DropTarget } from 'react-dnd';
 import { compose } from 'redux';
 import ItemTypes from '../constants/ItemTypes';
 
-const Note = ({ connectDropTarget, connectDragSource, children, ...props }) => {
+const Note = ({ connectDropTarget, connectDragSource, onMove, id, children, ...props }) => {
   return compose(connectDragSource, connectDropTarget)(
     <div {...props}>
       { children }
@@ -12,15 +12,20 @@ const Note = ({ connectDropTarget, connectDragSource, children, ...props }) => {
 }
 const noteSource = {
   beginDrag(props) {
-    console.log('begin note drag', props);
-    return {};
+    return {
+      id: props.id
+    };
   }
 };
 
 const noteTarget = {
   hover(targetProps, monitor) {
+    const targetId = targetProps.id;
     const sourceProps = monitor.getItem();
-    console.log('dragging note', sourceProps, targetProps);
+    const sourceId = sourceProps.id;
+    if(sourceId !== targetId){
+      targetProps.onMove({sourceId, targetId});
+    }
   }
 }
 export default compose(

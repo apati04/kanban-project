@@ -42,11 +42,15 @@ const Lane = ({
         <div className="lane-name">{lane.name}</div>
       </div>
       <Notes
-        notes={notes}
+        notes={selectNotesByids(notes, lane.notes)}
         onNoteClick={activateNoteEdit}
         onEdit={editNote}
         onDelete={deleteNote} />
     </div>
   );
+  function selectNotesByids(allNotes, noteIds=[]) {
+    return noteIds.reduce((notes,id) =>
+      notes.concat(allNotes.filter(note => note.id === id)), []);
+  }
 }
-export default connect(({notes}) => ({notes}), {NoteActions})(Lane);
+export default connect(({notes}) => ({notes}), {NoteActions, LaneActions})(Lane);

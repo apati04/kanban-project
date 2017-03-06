@@ -12,6 +12,7 @@ export default ({
         <Note
           className="note"
           onClick={onNoteClick.bind(null,id)}
+          editing={editing}
           id={id}
           onMove={LaneActions.move}>
           <Editable

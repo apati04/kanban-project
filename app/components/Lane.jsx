@@ -23,6 +23,8 @@ const Lane = ({
       noteId
     })
   };
+
+
   const activateNoteEdit = id => {
     NoteActions.update({id, editing: true});
   };
@@ -37,20 +39,20 @@ const Lane = ({
     </div>
   );
   function selectNotesByids(allNotes, noteIds=[]) {
-    return noteIds.reduce((notes,id) =>
-      notes.concat(allNotes.filter(note => note.id === id)), []);
+    return noteIds.reduce((notes,id) => {
+      return notes.concat(allNotes.filter(note => note.id === id))
+    }, []);
   }
-
-  const noteTarget = {
-    hover(targetProps, monitor) {
-      const sourceProps = monitor.getItem();
-      const sourceId = sourceProps.id;
-      if(!targetProps.lane.notes.length) {
-        LaneActions.attachToLane({
-          laneId: targetProps.lane.id,
-          noteId: sourceId
-        })
-      }
+}
+const noteTarget = {
+  hover(targetProps, monitor) {
+    const sourceProps = monitor.getItem();
+    const sourceId = sourceProps.id;
+    if(!targetProps.lane.notes.length) {
+      LaneActions.attachToLane({
+        laneId: targetProps.lane.id,
+        noteId: sourceId
+      })
     }
   }
 }

@@ -12,4 +12,19 @@ export default class LaneStore {
       lanes: this.lanes.concat(lane)
     })
   }
+  // find lane matching to given lane id then attach note id. also check that one note appears only in one lane at a time.
+  attachToLane({laneId, noteId}) {
+    this.setState({
+      lanes: this.lanes.map(lane => {
+        if(lane.notes.includes(noteId)) {
+          lane.notes = lane.notes.filter(note => note !== noteId);
+        }
+        if(lane.id === laneId){
+          lane.notes = lane.notes.concat([noteId])
+        }
+
+        return lane;
+      })
+    });
+  }
 }

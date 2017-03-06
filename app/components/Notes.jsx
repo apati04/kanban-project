@@ -9,7 +9,11 @@ export default ({
   <ul className="notes">
     {notes.map( ({id, editing, task}) =>
       <li key={id}>
-        <Note className="note" onClick={onNoteClick.bind(null,id)}>
+        <Note
+          className="note"
+          onClick={onNoteClick.bind(null,id)}
+          id={id}
+          onMove={({sourceId, targetId}) => console.log('moving from', sourceId, 'to', targetId)}>
           <Editable
             className="editable"
             editing={editing}

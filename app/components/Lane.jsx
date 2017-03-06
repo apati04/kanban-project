@@ -3,9 +3,10 @@ import uuid from 'uuid';
 import connect from '../libs/connect';
 import NoteActions from '../actions/NoteActions';
 import Notes from './Notes';
+import LaneActions from '../actions/LaneActions';
 
 const Lane = ({
-  lane, notes, NoteActions, ...props
+  lane, notes, LaneActions, NoteActions, ...props
 }) => {
   const editNote = (id, task) => {
     NoteActions.update({id, task, editing: false});
@@ -16,10 +17,18 @@ const Lane = ({
       id:noteId,
       task: 'New task'
     });
+    LaneActions.attachToLane({
+      laneId: lane.id,
+      noteId
+    })
   }
   const deleteNote = (noteId, e) => {
     e.stopPropagation();
     NoteActions.delete(noteId);
+    LaneActions.detachfromLane({
+      laneId: lane.id,
+      noteId
+    })
   };
   const activateNoteEdit = id => {
     NoteActions.update({id, editing: true});

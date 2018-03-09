@@ -16,19 +16,23 @@ const App = ({ LaneActions, lanes }) => {
   };
   return (
     <div>
-      <nav className="navbar navbar-dark bg-warning">
+      <nav style={{ opacity: '0.98' }} className="navbar navbar-dark bg-danger">
         <a className="navbar-brand" href="#">
-          Sticky Board by Andrew Patipaksiri
+          <h3>Post-it Board</h3>
         </a>
+        <div className="nav-item">
+          <h4 className="lead text-white">by Andrew Patipaksiri</h4>
+        </div>
       </nav>
-      <button
-        style={{ position: 'absolute' }}
-        className="btn btn-warning bmd-btn-fab"
-        onClick={addLane}
-      >
-        +
-      </button>
-      <Lanes lanes={lanes} />
+      <div className="container-fluid d-flex justify-content-start align-items-top mt-5">
+        <button
+          className="btn btn-info bmd-btn-fab text-white"
+          onClick={addLane}
+        >
+          +
+        </button>
+        <Lanes lanes={lanes} />
+      </div>
     </div>
   );
 };

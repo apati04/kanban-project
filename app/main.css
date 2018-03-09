@@ -1,8 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans|Roboto');
 
 body {
-  background-color: #e2e2e2;
+  background-color: #0f0f74;
   font-family: 'Roboto',sans-serif;
+}
+.card {
+  max-width: 212px;
 }
 .lane {
   display: inline-block;
@@ -54,7 +57,7 @@ body {
   list-style: none;
 }
 .note {
-  overflow: auto;
+  word-break: break-word;
   margin: 0.5em;
   padding: 0.5em;
   background-color: #fdfdfd;

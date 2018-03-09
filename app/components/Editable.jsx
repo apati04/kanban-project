@@ -8,7 +8,11 @@ export default ({ editing, value, onEdit, className, ...props }) => {
     );
   }
   return (
-    <span className={classnames('value', className)} {...props}>
+    <span
+      style={{ wordWrap: 'break-word' }}
+      className={classnames('value', className)}
+      {...props}
+    >
       {value}
     </span>
   );
@@ -31,10 +35,10 @@ class Edit extends Component {
   render() {
     const { className, value, onEdit, ...props } = this.props;
     return (
-      <div style={{ opacity: 0.6 }} className="bg-light rounded m-0 p-1">
+      <div style={{ opacity: 0.7 }} className="rounded m-0 p-1">
         <input
           type="text"
-          className={classnames('edit form-control', className)}
+          className={classnames('edit', className)}
           autoFocus={true}
           defaultValue={value}
           onBlur={this.finishEdit}

@@ -12,24 +12,29 @@ export default ({
     <ul className="list-group-flush p-0 m-0">
       {notes.map(({ id, editing, task }) => (
         <li
-          className="list-group-item bg-light border-dark p-1 form-group"
+          style={{ wordBreak: 'break-word' }}
+          className="d-flex justify-content-between align-items-center text-left list-group-item bg-light border-dark p-0"
           key={id}
         >
           <Note
             style={{ width: '100%' }}
-            className="d-flex rounded note m-1"
+            className="d-flex rounded m-2 note p-1"
             onClick={onNoteClick.bind(null, id)}
             editing={editing}
             id={id}
             onMove={LaneActions.move}
           >
             <Editable
-              className="editable form-control"
+              style={{ width: '100%' }}
+              className="editable m-2 p-1"
               editing={editing}
               value={task}
               onEdit={onEdit.bind(null, id)}
             />
-            <button className="delete" onClick={onDelete.bind(null, id)}>
+            <button
+              className="btn btn-danger delete m-2 p-1"
+              onClick={onDelete.bind(null, id)}
+            >
               x
             </button>
           </Note>

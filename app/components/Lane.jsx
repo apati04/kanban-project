@@ -58,10 +58,10 @@ const Lane = ({
       <div className="d-flex flex-row-reverse mt-1">
         <button
           type="button"
-          className="btn btn-info bmd-btn-fab bmd-btn-fab-sm mr-2"
+          className="btn btn-primary font-italic btn-sm mr-2"
           onClick={addNote}
         >
-          +
+          Add Card
         </button>
       </div>
     </div>

@@ -41,11 +41,13 @@ export default connect(() => ({}), {
   };
   return (
     <div
-      className="d-flex justify-content-between card-header bg-info rounded-top"
+      style={{ opacity: '0.89', width: '100%' }}
+      className="d-flex justify-content-between card-header bg-info rounded-top m-0 p-3"
       onClick={activateLaneEdit}
       {...props}
     >
       <Editable
+        style={{ width: '100%' }}
         className="lead align-self-center"
         editing={lane.editing}
         value={lane.name}
@@ -55,7 +57,7 @@ export default connect(() => ({}), {
       <div className="delete">
         <button
           style={{ border: 0 }}
-          className="btn btn-light m-0"
+          className="btn btn-danger m-0 p-1"
           onClick={deleteLane}
         >
           X

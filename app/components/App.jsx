@@ -10,21 +10,26 @@ import LaneActions from '../actions/LaneActions';
 const App = ({ LaneActions, lanes }) => {
   const addLane = () => {
     LaneActions.create({
-      id: uuid.v4(),
-      name: 'New Lane'
+      id   : uuid.v4(),
+      name : 'Add title...'
     });
   };
   return (
     <div>
-      <button className="add-lane" onClick={addLane}>+</button>
+      <nav className="navbar navbar-dark bg-warning">
+        <a className="navbar-brand" href="#">
+          Sticky Board by Andrew Patipaksiri
+        </a>
+      </nav>
+      <button className="btn btn-warning bmd-btn-fab" onClick={addLane}>
+        +
+      </button>
       <Lanes lanes={lanes} />
     </div>
-  )
-}
+  );
+};
 
 export default compose(
   DragDropContext(HTML5Backend),
-  connect(
-    ({ lanes }) => ({ lanes }), { LaneActions }
-  )
+  connect(({ lanes }) => ({ lanes }), { LaneActions })
 )(App);

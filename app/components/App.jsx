@@ -11,7 +11,7 @@ const App = ({ LaneActions, lanes }) => {
   const addLane = () => {
     LaneActions.create({
       id   : uuid.v4(),
-      name : 'Add title...'
+      name : 'Edit title...'
     });
   };
   return (
@@ -21,7 +21,11 @@ const App = ({ LaneActions, lanes }) => {
           Sticky Board by Andrew Patipaksiri
         </a>
       </nav>
-      <button className="btn btn-warning bmd-btn-fab" onClick={addLane}>
+      <button
+        style={{ position: 'absolute' }}
+        className="btn btn-warning bmd-btn-fab"
+        onClick={addLane}
+      >
         +
       </button>
       <Lanes lanes={lanes} />

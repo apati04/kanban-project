@@ -1,23 +1,20 @@
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans|Roboto');
 
 body {
-  background-color: #03a9f4;
+  background-color: #e2e2e2;
   font-family: 'Roboto',sans-serif;
 }
 .lane {
   display: inline-block;
   margin: 1em;
-  background-color: #0d47a1;
-  border: 1px solid #ccc;
-  border-radius: 0.2em;
-  min-width: 10em;
+  min-width: 16em;
   vertical-align: top;
 }
 
 .lane-header {
   overflow: auto;
   padding: 1em;
-  color: #f7f7f7;
+  color: #747171;
   background-color: black;
   border-top-left-radius: 0.2em;
   border-top-right-radius: 0.2em;
@@ -29,7 +26,6 @@ body {
 .lane-add-note {
   float: left;
   margin-right: 0.5em;
-
 }
 .lane-delete {
   float: right;

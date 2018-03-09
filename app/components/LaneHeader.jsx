@@ -41,22 +41,25 @@ export default connect(() => ({}), {
   };
   return (
     <div
-      style={{ overflow: 'auto', padding: '1em' }}
-      className="card-header"
+      className="d-flex justify-content-between card-header bg-info rounded-top"
       onClick={activateLaneEdit}
       {...props}
     >
-      <div className="lane-add-note">
-        <button onClick={addNote}>+</button>
-      </div>
       <Editable
-        className="lane-name"
+        className="lead align-self-center"
         editing={lane.editing}
         value={lane.name}
         onEdit={editName}
       />
-      <div className="lane-delete">
-        <button onClick={deleteLane}>x</button>
+
+      <div className="delete">
+        <button
+          style={{ border: 0 }}
+          className="btn btn-light m-0"
+          onClick={deleteLane}
+        >
+          X
+        </button>
       </div>
     </div>
   );
